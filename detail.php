@@ -1,15 +1,14 @@
 <?php
+require 'Database.php';
+
+
+echo time();
 
 $id = $_GET['id']; // lấy ra tham số id trong link request ở trang trước
-
 echo $id;
-$server = "localhost";
-$db_username = "root";
-$db_password = "";
-$database = "poly_students";
-// mở kết nối như bt
-$connection = new mysqli(
-    $server, $db_username, $db_password, $database);
+
+$connection = (new Database())->connect();
+
 // viết câu lệnh truy vấn sinh viên với id lấy được
 $truyvan = "SELECT * FROM students WHERE id=" . $id;
 
